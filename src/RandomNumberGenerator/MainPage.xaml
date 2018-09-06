@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:RandomNumberGenerator" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true" 
+             x:Class="RandomNumberGenerator.MainPage"
+             >
+    <StackLayout Orientation="Vertical">
+        <ListView x:Name="lstDraftOrder" RowHeight="75" SeparatorVisibility="None" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView.Header>
+                <StackLayout>
+                    <Label Text=" Glenville Draft Order" FontAttributes="Bold" 
+                           TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell IsEnabled="false">
+                        <Frame CornerRadius="5" Padding="5" Margin="10" BackgroundColor="Black" HasShadow="true">
+                            <Label Text="{Binding Name}" HeightRequest="100" 
+                                   TextColor="Silver" FontAttributes="Bold"
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Margin="5" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+            <Button x:Name="btnNewNumber" HorizontalOptions="FillAndExpand" Text="Generate Draft Order" Clicked="Handle_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
